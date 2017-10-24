@@ -1,0 +1,8 @@
+https://developer.garmin.com/connect-iq/programmers-guide/monkey-c/
+
+TODO:
+- Create icons for all watches
+- Create menu with count down time
+- Start/stop functionality
+- Set warn time from menu
+
