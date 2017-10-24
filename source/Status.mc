@@ -1,11 +1,14 @@
 
-class Status {
+module TalkTimer {
 
-	enum {
-	    TimesUp,
-	    Warn,
-	    Ok
+	class Status {
+	
+		enum {
+		    TimesUp,
+		    Warn,
+		    Ok
+		}
+	
 	}
 
 }
-

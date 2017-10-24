@@ -1,20 +1,23 @@
 using Toybox.WatchUi;
 using Toybox.Graphics;
 
-class TalkTimerMenuView extends WatchUi.View {
+module TalkTimer {
 
-    function initialize() {
-        WatchUi.View.initialize();
-    }
-
-    function onLayout(dc) {
-        dc.clear();    
-        dc.setColor(Graphics.COLOR_BLUE, Graphics.COLOR_BLUE);
-    }
-
-    function onUpdate(dc) {
-        dc.clear();    
-        dc.setColor(Graphics.COLOR_BLUE, Graphics.COLOR_BLUE);
-    }
-
+	class TalkTimerMenuView extends WatchUi.View {
+	
+	    public function initialize() {
+	        WatchUi.View.initialize();
+	    }
+	
+	    public function onLayout(dc) {
+	        dc.clear();    
+	        dc.setColor(Graphics.COLOR_BLUE, Graphics.COLOR_BLUE);
+	    }
+	
+	    public function onUpdate(dc) {
+	        dc.clear();    
+	        dc.setColor(Graphics.COLOR_BLUE, Graphics.COLOR_BLUE);
+	    }
+	
+	}
 }

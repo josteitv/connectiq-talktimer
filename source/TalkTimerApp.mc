@@ -1,21 +1,25 @@
 using Toybox.Application;
+using TalkTimer;
 
-class TalkTimerApp extends Application.AppBase {
+module TalkTimer {
 
-    function initialize() {
-        Application.AppBase.initialize();
-    }
-
-    function onStart(state) {
-    
-    }
-
-    function onStop(state) {
-    
-    }
-
-    function getInitialView() {
-        return [ new TalkTimerView(), new TalkTimerDelegate() ];
-    }
-
+	class TalkTimerApp extends Application.AppBase {
+	
+	    public function initialize() {
+	        Application.AppBase.initialize();
+	    }
+	
+	    public function onStart(state) {
+	    
+	    }
+	
+	    public function onStop(state) {
+	    
+	    }
+	
+	    public function getInitialView() {
+	        return [ new TalkTimerView(), new TalkTimerDelegate() ];
+	    }
+	
+	}
 }
