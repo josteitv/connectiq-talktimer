@@ -9,10 +9,9 @@ module TalkTimer {
 	    }
 	
 	    function onMenu() {
-	        //timer.stop();
+	        timer.stop();
 	        
-	        // TODO fix Menu
-	        //WatchUi.pushView(new TalkTimerMenuView(), new TalkTimerMenuDelegate(), WatchUi.SLIDE_UP);
+	        WatchUi.pushView(new MenuView(), new MenuDelegate(), WatchUi.SLIDE_UP);
 	        
 	        return true;
 	    }

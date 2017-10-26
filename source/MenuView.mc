@@ -3,7 +3,7 @@ using Toybox.Graphics;
 
 module TalkTimer {
 
-	class TalkTimerMenuView extends WatchUi.View {
+	class MenuView extends WatchUi.View {
 	
 	    public function initialize() {
 	        WatchUi.View.initialize();
@@ -15,7 +15,7 @@ module TalkTimer {
 	    }
 	
 	    public function onUpdate(dc) {
-	        dc.clear();    
+	        dc.clear();
 	        dc.setColor(Graphics.COLOR_BLUE, Graphics.COLOR_BLUE);
 	    }
 	

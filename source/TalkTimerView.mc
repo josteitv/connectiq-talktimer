@@ -6,10 +6,11 @@ using TalkTimer;
 
 module TalkTimer {
 
+    var timer;
+
 	class TalkTimerView extends WatchUi.View {
 	
 	    private var backgroundColor = Graphics.COLOR_GREEN;
-	    private var timer;
 	
 	    public function initialize() {
 	        WatchUi.View.initialize();
