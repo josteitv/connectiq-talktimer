@@ -9,7 +9,7 @@ module TalkTimer {
 	class TalkTimerView extends WatchUi.View {
 	
 	    private var backgroundColor = Graphics.COLOR_GREEN;
-	    private var talkTimer;
+	    private var timer;
 	
 	    public function initialize() {
 	        WatchUi.View.initialize();
@@ -17,15 +17,15 @@ module TalkTimer {
 	
 	    // Load your resources here
 	    public function onLayout(dc) {
-	        talkTimer = new TalkTimer.TalkTimer(60 * 10, 10);
-	        talkTimer.start();
+	        timer = new TalkTimer.CountDownTimer(60 * 10, 10);
+	        timer.start();
 	    }
 	
 	    public function onUpdate(dc) {
 	        View.onUpdate(dc);
 	        
-	        var status = talkTimer.getStatus();
-	        var timeString = talkTimer.toString();
+	        var status = timer.getStatus();
+	        var timeString = timer.toString();
 	        
 			if (status == Status.TimesUp) {
 				backgroundColor = (backgroundColor == Graphics.COLOR_RED) ? Graphics.COLOR_DK_RED : Graphics.COLOR_RED;

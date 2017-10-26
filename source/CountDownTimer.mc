@@ -1,7 +1,7 @@
 
 module TalkTimer {
 
-	class TalkTimer {
+	class CountDownTimer {
 	
 	    private var timer;
 	    private var duration;

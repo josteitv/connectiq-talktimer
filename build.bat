@@ -7,14 +7,19 @@ if not exist build\key.p8.der openssl pkcs8 -topk8 -inform PEM -outform DER -in 
 
 setlocal ENABLEDELAYEDEXPANSION
 
+
 set RESOURCES=
-for /f %%f in ('dir /s/b resources\*.xml') do set "RESOURCES=!RESOURCES!;%%f"
+for /f %%d in ('dir /s/b resources*') do (
+  for /f %%f in ('dir /s/b %%d\*.xml') do (
+    set "RESOURCES=!RESOURCES!;%%f"
+  )
+)
 set RESOURCES=%RESOURCES:~1%
 
 set SOURCES=
 for /f %%f in ('dir /s/b source\*.mc') do set "SOURCES=!SOURCES! %%f"
 
-monkeyc --unit-test --manifest manifest.xml --output build\connectiq-talktimer.prg --warn --private-key build\key.p8.der --rez %RESOURCES% %SOURCES%
+rem monkeyc --unit-test --manifest manifest.xml --output build\connectiq-talktimer.prg --warn --private-key build\key.p8.der --rez %RESOURCES% %SOURCES%
 
 monkeyc --package-app --manifest manifest.xml --output build\connectiq-talktimer.iq --release --warn --private-key build\key.p8.der --rez %RESOURCES% %SOURCES%
 
