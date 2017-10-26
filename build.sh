@@ -22,7 +22,15 @@ openssl pkcs8 -topk8 -inform PEM -outform DER -in ${BUILD_DIR}/key.pem -out ${BU
 RESOURCES="`cd /; find \"${PROJECT_HOME}/${RESOURCES_FOLDER}\"* -iname '*.xml' | tr '\n' ':'`"
 SOURCES="`cd /; find \"${PROJECT_HOME}/${SOURCE_FOLDER}\" -iname '*.mc' | tr '\n' ' '`"
 
+# Compile with tests
+#java -jar "${SDK_DIR}/bin/monkeybrains.jar" --unit-test --manifest manifest.xml --output ${BUILD_DIR}/${APP_NAME}.iq --release --warn --private-key ${BUILD_DIR}/key.p8.der --rez ${RESOURCES} ${SOURCES}
+
+# Run tests (requires a running simulator)
+#"${SDK_DIR}/bin/monkeydo" "${BUILD_DIR}/${APP_NAME}.prg" -t
+
+
+# Package
 java -jar "${SDK_DIR}/bin/monkeybrains.jar" --package-app --manifest manifest.xml --output ${BUILD_DIR}/${APP_NAME}.iq --release --warn --private-key ${BUILD_DIR}/key.p8.der --rez ${RESOURCES} ${SOURCES}
 
-#"${SDK_DIR}/bin/monkeydo" "${PROJECT_HOME}/${APP_NAME}.prg" -t
+
 
