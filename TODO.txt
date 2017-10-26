@@ -1,10 +1,11 @@
 https://developer.garmin.com/connect-iq/programmers-guide/monkey-c/
 
 TODO:
-- Enable tests in TravisCI
-- Look at warnings messages from TravisCI and fix them
-- Create icons for all watches
-- Create menu with count down time
-- Start/stop functionality
+- Add start/stop/back functionality
+- Add menu (start/stop when entering/exiting menu)
+- Set time from menu
 - Set warn time from menu
+- Create icon
+- Create icon for all watches
+- Enable tests in TravisCI if possible
 
