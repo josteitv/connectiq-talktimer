@@ -3,28 +3,28 @@ using Toybox.System as Sys;
 
 module TalkTimer {
 
-	class MenuDelegate extends Ui.BehaviorDelegate {
+	class MenuDelegate extends Ui.MenuInputDelegate {
 	
-	    private var timer;
+    	private var _settings;
+	    private var _timer;
 	
-	    function initialize(t) {
-	        timer = t;
-	        BehaviorDelegate.initialize();
+	    function initialize(timer, settings) {
+	        MenuInputDelegate.initialize();
+            _timer = timer;
+	        _settings = settings;
 	    }
 
-        public function onMenu() {
-            return back();
-        }
-
-        public function onBack() {
-            return back();
-        }
-
-        private function back() {
-            timer.start();            
-            Ui.popView(Ui.SLIDE_DOWN);            
-            return true;
-        }
+	    function onMenuItem(item) {
+            if (item == :MenuItem_Reset) {
+                _timer.reset();
+            } else if (item == :MenuItem_SetTime) {
+                var picker = new WatchUi.NumberPicker(WatchUi.NUMBER_PICKER_TIME_MIN_SEC, new Time.Duration(_settings.getStartTime()));
+                Ui.pushView(picker, new SetTimeDelegate(_settings), Ui.SLIDE_UP);
+	        } else if (item == :MenuItem_SetWarnTime) {
+                var picker = new WatchUi.NumberPicker(WatchUi.NUMBER_PICKER_TIME_MIN_SEC, new Time.Duration(_settings.getWarnTime));
+                Ui.pushView(picker, new SetWarnTimeDelegate(_settings), Ui.SLIDE_UP);
+	        }
+	    }
 
 	}
 }

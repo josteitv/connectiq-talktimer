@@ -4,24 +4,26 @@ module TalkTimer {
 
 	class TalkTimerDelegate extends WatchUi.BehaviorDelegate {
 	   
-	   private var timer;
+	   private var _timer;
+       private var _settings;
 	
-	    function initialize(t) {
-	        timer = t;
+	    function initialize(timer, settings) {
 	        WatchUi.BehaviorDelegate.initialize();
+            _timer = timer;
+            _settings = settings;
 	    }
 	
 	    public function onMenu() {
-	        timer.stop();	        
-	        WatchUi.pushView(new MenuView(), new MenuDelegate(timer), WatchUi.SLIDE_UP);
+	        _timer.stop();	        
+	        WatchUi.pushView(new Rez.Menus.MainMenu(), new MenuDelegate(_timer, _settings), WatchUi.SLIDE_UP);
 	        return true;
 	    }
 
         public function onSelect() {
-            if (timer.isRunning()) {
-                timer.stop();
+            if (_timer.isRunning()) {
+                _timer.stop();
             } else {
-                timer.start();
+                _timer.start();
             }
             return true;
         }

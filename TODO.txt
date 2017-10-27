@@ -1,11 +1,10 @@
 https://developer.garmin.com/connect-iq/programmers-guide/monkey-c/
 
 TODO:
-- Add start/stop/back functionality
-- Reset from menu
-- Set time from menu
-- Set warn time from menu
+- Put settings inside timer?
+- Cleanup sysout and source code formatting
 - Create icon
 - Create icon for all watches
+- Show start time and warn time in menu
 - Enable tests in TravisCI if possible
 

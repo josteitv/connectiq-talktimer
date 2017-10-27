@@ -5,9 +5,7 @@ module TalkTimer {
 
 	class TalkTimerApp extends Application.AppBase {
 
-        private var startTime;
-        private var warnTime;
-        private var timeLeft;
+        private var settings = new Settings();
 	
 	    public function initialize() {
 	        AppBase.initialize();
@@ -15,34 +13,22 @@ module TalkTimer {
 	
 	    public function onStart(state) {
             var app = Application.getApp();
-            startTime = app.getProperty("startTime");
-            warnTime = app.getProperty("warnTime");
-            timeLeft = app.getProperty("timeLeft");	    
-            
-            if (startTime == null) {
-                startTime = 10 * 60;
-            }
-            
-            if (warnTime == null) {
-                warnTime = 30;
-            }
-            
-            if (timeLeft == null) {
-                timeLeft = startTime;
-            }            
+            settings.setStartTime(app.getProperty("startTime"));
+            settings.setWarnTime(app.getProperty("warnTime"));
+            settings.setTimeLeft(app.getProperty("timeLeft"));            
 	    }
 	
 	    public function onStop(state) {
     	    var app = Application.getApp();
-    	    app.setProperty("startTime", startTime);
-            app.setProperty("warnTime", warnTime);
-            app.setProperty("timeLeft", timeLeft);
+    	    app.setProperty("startTime", settings.getStartTime());
+            app.setProperty("warnTime", settings.getWarnTime());
+            app.setProperty("timeLeft", settings.getTimeLeft());
 	    }
 	
 	    public function getInitialView() {
-	        var timer = new TalkTimer.CountDownTimer(timeLeft, warnTime);
+	        var timer = new TalkTimer.CountDownTimer(settings);
 	       
-	        return [ new TalkTimerView(timer), new TalkTimerDelegate(timer) ];
+	        return [ new TalkTimerView(timer), new TalkTimerDelegate(timer, settings) ];
 	    }
 	
 	}

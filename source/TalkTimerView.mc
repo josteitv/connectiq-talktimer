@@ -18,7 +18,8 @@ module TalkTimer {
 	
 	    // Load your resources here
 	    public function onLayout(dc) {
-	        timer.start();
+            System.println("TalkTimerView#onLayout");      
+	        //timer.start();
 	    }
 	
 	    public function onUpdate(dc) {
@@ -47,14 +48,15 @@ module TalkTimer {
 	    // the state of this View and prepare it to be shown. This includes
 	    // loading resources into memory.
 	    public function onShow() {
-	    
+            System.println("TalkTimerView#onShow");      
+	       timer.refresh();
 	    }
 	
 	    // Called when this View is removed from the screen. Save the
 	    // state of this View here. This includes freeing resources from
 	    // memory.
 	    public function onHide() {
-	    
+	       //timer.saveState();
 	    }
 	
 	}

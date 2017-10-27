@@ -3,45 +3,65 @@ module TalkTimer {
 
 	class CountDownTimer {
 	
+ 	    private var _settings;
+	
 	    private var timer;
 	    private var duration;
-	    private var warnTime;
 	    private var _isRunning = false;
 	
-	    //! Initialize the TalkTimer class
-	    //! @param [Toybox::Lang::Number] Start time
-	    //! @param [Toybox::Lang::Number] Time to warn
-	    public function initialize(startTime, wTime) {
-	        duration = new Time.Duration(startTime);
-	        warnTime = wTime;
-	        timer = new Timer.Timer();
+	    public function initialize(settings) {
+            System.println("CountDownTimer#initialize");      
+	        _settings = settings;
+	        refresh();
 	    }
+
+        public function refresh() {
+                System.println("CountDownTimer#refresh");       
+            duration = new Time.Duration(_settings.getTimeLeft());
+            timer = new Timer.Timer();
+        }        
+
+        public function reset() {
+            System.println("CountDownTimer#reset");
+            _settings.reset();
+        }
+
+
+        public function save() {
+                System.println("CountDownTimer#refresh");       
+            duration = new Time.Duration(_settings.getTimeLeft());
+            timer = new Timer.Timer();
+        }        
 
         public function isRunning() {
             return _isRunning;
         }
 	
 	    public function start() {
+                System.println("CountDownTimer#start");      
 	        timer.start(method(:callback), 1000, true);
 	        _isRunning = true;
 	    }
 	    
 	    public function stop() {
+            System.println("CountDownTimer#stop");      
 	        timer.stop();
 	        _isRunning = false;
 	    }
 	    
 	    private function callback() {
 	        if (duration.value() > 0) {
-		        duration = duration.subtract(new Time.Duration(1));    	
+		        duration = duration.subtract(new Time.Duration(1));
+		        _settings.setTimeLeft(duration.value());
 	        }
 	        WatchUi.requestUpdate(); // TODO: Move to View
 	    }
 	
 	    public function getStatus() {
+            System.println("duration.value(): " + duration.value());     	    
 			if (duration.value() <= 0) {
 			    return Status.TimesUp;
-			} else if (duration.value() <= warnTime) {
+			} else if (duration.value() <= _settings.getWarnTime()) {
 			    return Status.Warn;
 			} else {
 			    return Status.Ok;
