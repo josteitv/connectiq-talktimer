@@ -14,10 +14,8 @@ module TalkTimer {
         }
 
         function reset() {
-            _startTime = defaultStartTime;
-            _warnTime = defaultWarnTime;
-            _timeLeft = defaultStartTime;
-        }        
+            _timeLeft = _startTime;
+        }
 
         function setStartTime(startTime) {
             if (startTime == null) {

@@ -19,7 +19,7 @@ set RESOURCES=%RESOURCES:~1%
 set SOURCES=
 for /f %%f in ('dir /s/b source\*.mc') do set "SOURCES=!SOURCES! %%f"
 
-rem monkeyc --unit-test --manifest manifest.xml --output build\connectiq-talktimer.prg --warn --private-key build\key.p8.der --rez %RESOURCES% %SOURCES%
+monkeyc --unit-test --manifest manifest.xml --output build\connectiq-talktimer.prg --warn --private-key build\key.p8.der --rez %RESOURCES% %SOURCES%
 
-monkeyc --package-app --manifest manifest.xml --output build\connectiq-talktimer.iq --release --warn --private-key build\key.p8.der --rez %RESOURCES% %SOURCES%
+rem monkeyc --package-app --manifest manifest.xml --output build\connectiq-talktimer.iq --release --warn --private-key build\key.p8.der --rez %RESOURCES% %SOURCES%
 

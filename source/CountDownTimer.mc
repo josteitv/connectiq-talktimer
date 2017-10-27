@@ -10,25 +10,20 @@ module TalkTimer {
 	    private var _isRunning = false;
 	
 	    public function initialize(settings) {
-            System.println("CountDownTimer#initialize");      
 	        _settings = settings;
 	        refresh();
 	    }
 
         public function refresh() {
-                System.println("CountDownTimer#refresh");       
             duration = new Time.Duration(_settings.getTimeLeft());
             timer = new Timer.Timer();
         }        
 
         public function reset() {
-            System.println("CountDownTimer#reset");
             _settings.reset();
         }
 
-
         public function save() {
-                System.println("CountDownTimer#refresh");       
             duration = new Time.Duration(_settings.getTimeLeft());
             timer = new Timer.Timer();
         }        
@@ -38,13 +33,11 @@ module TalkTimer {
         }
 	
 	    public function start() {
-                System.println("CountDownTimer#start");      
 	        timer.start(method(:callback), 1000, true);
 	        _isRunning = true;
 	    }
 	    
 	    public function stop() {
-            System.println("CountDownTimer#stop");      
 	        timer.stop();
 	        _isRunning = false;
 	    }
@@ -58,7 +51,6 @@ module TalkTimer {
 	    }
 	
 	    public function getStatus() {
-            System.println("duration.value(): " + duration.value());     	    
 			if (duration.value() <= 0) {
 			    return Status.TimesUp;
 			} else if (duration.value() <= _settings.getWarnTime()) {
@@ -68,9 +60,6 @@ module TalkTimer {
 			}
 	    }
 	
-	
-	    //! Output the remaining time as a formatted string
-	    //! @return [Toybox::Lang::String] Formatted time
 	    public function toString() {
 	        var total = duration.value();
 	    
