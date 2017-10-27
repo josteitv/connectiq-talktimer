@@ -6,19 +6,18 @@ using TalkTimer;
 
 module TalkTimer {
 
-    var timer;
-
 	class TalkTimerView extends WatchUi.View {
 	
+	    private var timer;
 	    private var backgroundColor = Graphics.COLOR_GREEN;
 	
-	    public function initialize() {
-	        WatchUi.View.initialize();
+	    public function initialize(t) {
+	        timer = t;
+            WatchUi.View.initialize();
 	    }
 	
 	    // Load your resources here
 	    public function onLayout(dc) {
-	        timer = new TalkTimer.CountDownTimer(60 * 10, 10);
 	        timer.start();
 	    }
 	

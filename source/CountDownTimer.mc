@@ -6,6 +6,7 @@ module TalkTimer {
 	    private var timer;
 	    private var duration;
 	    private var warnTime;
+	    private var _isRunning = false;
 	
 	    //! Initialize the TalkTimer class
 	    //! @param [Toybox::Lang::Number] Start time
@@ -15,13 +16,19 @@ module TalkTimer {
 	        warnTime = wTime;
 	        timer = new Timer.Timer();
 	    }
+
+        public function isRunning() {
+            return _isRunning;
+        }
 	
 	    public function start() {
 	        timer.start(method(:callback), 1000, true);
+	        _isRunning = true;
 	    }
 	    
 	    public function stop() {
 	        timer.stop();
+	        _isRunning = false;
 	    }
 	    
 	    private function callback() {

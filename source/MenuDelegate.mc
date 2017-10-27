@@ -5,7 +5,10 @@ module TalkTimer {
 
 	class MenuDelegate extends Ui.BehaviorDelegate {
 	
-	    function initialize() {
+	    private var timer;
+	
+	    function initialize(t) {
+	        timer = t;
 	        BehaviorDelegate.initialize();
 	    }
 

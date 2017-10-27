@@ -2,7 +2,7 @@ https://developer.garmin.com/connect-iq/programmers-guide/monkey-c/
 
 TODO:
 - Add start/stop/back functionality
-- Add menu (start/stop when entering/exiting menu)
+- Reset from menu
 - Set time from menu
 - Set warn time from menu
 - Create icon
