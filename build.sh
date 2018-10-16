@@ -5,8 +5,6 @@ APP_NAME=connectiq-talktimer
 SDK_URL="https://developer.garmin.com/downloads/connect-iq/sdks/connectiq-sdk-win-3.0.3-2018-9-11-7881c24.zip"
 
 PROJECT_HOME="${PWD}"
-RESOURCES_FOLDER="resources"
-SOURCE_FOLDER="source"
 BUILD_DIR=./build
 SDK_FILE="${PROJECT_HOME}/../sdk.zip"
 SDK_DIR="${PROJECT_HOME}/../sdk"
