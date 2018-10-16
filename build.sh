@@ -8,8 +8,8 @@ PROJECT_HOME="${PWD}"
 RESOURCES_FOLDER="resources"
 SOURCE_FOLDER="source"
 BUILD_DIR=./build
-SDK_FILE="${BUILD_DIR}/sdk.zip"
-SDK_DIR="${BUILD_DIR}/sdk"
+SDK_FILE="${PROJECT_HOME}/../sdk.zip"
+SDK_DIR="${PROJECT_HOME}/../sdk"
 
 mkdir -p ${BUILD_DIR}
 
