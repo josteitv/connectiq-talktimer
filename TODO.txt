@@ -4,6 +4,7 @@ TODO:
 - No icon is showing on watch. Why?
 - Create icon
 - Create icon for all watches
+- Vibrate
 - Option: Light always on
 - Show start time and warn time in menu
 - Put settings inside timer?
