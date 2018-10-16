@@ -1,16 +1,16 @@
 module TalkTimer {
 
-	class Settings {
-		
-		private const defaultStartTime = 60 * 10;
+    class Settings {
+
+        private const defaultStartTime = 60 * 10;
         private const defaultWarnTime = 30;
-		
+
         private var _startTime;
         private var _warnTime;
-        private var _timeLeft;	
+        private var _timeLeft;
 
         function initialize() {
-        
+
         }
 
         function reset() {
@@ -37,17 +37,17 @@ module TalkTimer {
             }
             _timeLeft = timeLeft;
         }
-        
+
         function getStartTime() {
-            return _startTime;        
+            return _startTime;
         }
         function getWarnTime() {
-            return _warnTime;        
+            return _warnTime;
         }
         function getTimeLeft() {
-            return _timeLeft;        
+            return _timeLeft;
         }
-        
-	}
+
+    }
 
 }

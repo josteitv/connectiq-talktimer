@@ -1,6 +1,6 @@
 <strings>
     <string id="AppName">Talk Timer</string>
-    
+ 
     <string id="MenuItemReset">Reset</string>
     <string id="MenuItemSetTime">Set time</string>
     <string id="MenuItemSetWarnTime">Set warn time</string>

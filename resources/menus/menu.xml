@@ -1,5 +1,5 @@
 <menu id="MainMenu">
-    <menu-item id="MenuItem_Reset">@Strings.MenuItemReset</menu-item>
-    <menu-item id="MenuItem_SetTime">@Strings.MenuItemSetTime</menu-item>
-    <menu-item id="MenuItem_SetWarnTime">@Strings.MenuItemSetWarnTime</menu-item>
+    <menu-item id="MenuItem_Reset" label="@Strings.MenuItemReset" />
+    <menu-item id="MenuItem_SetTime" label="@Strings.MenuItemSetTime" />
+    <menu-item id="MenuItem_SetWarnTime" label="@Strings.MenuItemSetWarnTime" />
 </menu>
