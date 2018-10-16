@@ -20,7 +20,4 @@ chmod 755 ${SDK_DIR}/bin/monkeyc
 openssl genrsa -out ${BUILD_DIR}/key.pem 4096
 openssl pkcs8 -topk8 -inform PEM -outform DER -in ${BUILD_DIR}/key.pem -out ${BUILD_DIR}/key.p8.der -nocrypt
 
-RESOURCES="`cd /; find \"${PROJECT_HOME}/${RESOURCES_FOLDER}\"* -iname '*.xml' | tr '\n' ':'`"
-SOURCES="`cd /; find \"${PROJECT_HOME}/${SOURCE_FOLDER}\" -iname '*.mc' | tr '\n' ' '`"
-
 ${SDK_DIR}/bin/monkeyc --package-app --jungles monkey.jungle --output ${BUILD_DIR}/${APP_NAME}.iq --release --warn --private-key ${BUILD_DIR}/key.p8.der
