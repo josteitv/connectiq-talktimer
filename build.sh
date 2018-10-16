@@ -7,7 +7,7 @@ SDK_URL="https://developer.garmin.com/downloads/connect-iq/sdks/connectiq-sdk-wi
 PROJECT_HOME="${PWD}"
 RESOURCES_FOLDER="resources"
 SOURCE_FOLDER="source"
-BUILD_DIR=build
+BUILD_DIR=./build
 SDK_FILE="${BUILD_DIR}/sdk.zip"
 SDK_DIR="${BUILD_DIR}/sdk"
 
@@ -15,6 +15,7 @@ mkdir -p ${BUILD_DIR}
 
 wget -O "${SDK_FILE}" "${SDK_URL}"
 unzip "${SDK_FILE}" "bin/*" -d "${SDK_DIR}"
+chmod 755 ${SDK_DIR}/bin/monkeyc
 
 openssl genrsa -out ${BUILD_DIR}/key.pem 4096
 openssl pkcs8 -topk8 -inform PEM -outform DER -in ${BUILD_DIR}/key.pem -out ${BUILD_DIR}/key.p8.der -nocrypt
@@ -22,4 +23,4 @@ openssl pkcs8 -topk8 -inform PEM -outform DER -in ${BUILD_DIR}/key.pem -out ${BU
 RESOURCES="`cd /; find \"${PROJECT_HOME}/${RESOURCES_FOLDER}\"* -iname '*.xml' | tr '\n' ':'`"
 SOURCES="`cd /; find \"${PROJECT_HOME}/${SOURCE_FOLDER}\" -iname '*.mc' | tr '\n' ' '`"
 
-${SDK_DIR}/bin/monkeyc --package-app --jungles monkey.jungle --output ${BUILD_DIR}/${APP_NAME}.iq --release --warn --private-key ${BUILD_DIR}/key.p8.der --rez ${RESOURCES} ${SOURCES}
+${SDK_DIR}/bin/monkeyc --package-app --jungles monkey.jungle --output ${BUILD_DIR}/${APP_NAME}.iq --release --warn --private-key ${BUILD_DIR}/key.p8.der
