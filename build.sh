@@ -16,12 +16,11 @@ mkdir -p ${BUILD_DIR}
 wget -O "${SDK_FILE}" "${SDK_URL}"
 unzip "${SDK_FILE}" "bin/*" -d "${SDK_DIR}"
 
-# dos2unix
-perl -pi -e 's/\r\n/\n/g' ${SDK_DIR}/bin/monkeyc
-
-chmod 755 ${SDK_DIR}/bin/monkeyc
-
 openssl genrsa -out ${BUILD_DIR}/key.pem 4096
 openssl pkcs8 -topk8 -inform PEM -outform DER -in ${BUILD_DIR}/key.pem -out ${BUILD_DIR}/key.p8.der -nocrypt
 
-${SDK_DIR}/bin/monkeyc --package-app --jungles monkey.jungle --output ${BUILD_DIR}/${APP_NAME}.iq --release --warn --private-key ${BUILD_DIR}/key.p8.der
+# monkeyc wont run on linux
+# ${SDK_DIR}/bin/monkeyc --package-app --jungles monkey.jungle --output ${BUILD_DIR}/${APP_NAME}.iq --release --warn --private-key ${BUILD_DIR}/key.p8.der
+
+# Package
+java -jar "${SDK_DIR}/bin/monkeybrains.jar" --package-app --jungles monkey.jungle --output ${BUILD_DIR}/${APP_NAME}.iq --release --warn --private-key ${BUILD_DIR}/key.p8.der
