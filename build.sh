@@ -15,6 +15,7 @@ mkdir -p ${BUILD_DIR}
 
 wget -O "${SDK_FILE}" "${SDK_URL}"
 unzip "${SDK_FILE}" "bin/*" -d "${SDK_DIR}"
+dos2unix ${SDK_DIR}/bin/monkeyc
 chmod 755 ${SDK_DIR}/bin/monkeyc
 
 openssl genrsa -out ${BUILD_DIR}/key.pem 4096
