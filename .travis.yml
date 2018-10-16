@@ -1,4 +1,6 @@
-language: minimal
+language: java
+
+jdk: oraclejdk8
 
 before_script:
     - chmod 755 ./build.sh
